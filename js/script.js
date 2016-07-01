@@ -4,9 +4,11 @@ document.getElementById('loadQuote').addEventListener("click", printQuote, false
 
 // lastQuote, is a array that we put in the last index of the quote that we have shown to the user.
 var lastQuote =[];
+
 // controlQuote is for control the first quote, and to begin the control flux,
 // that make sure that the quote doesn't repeat until we have shown all of them  
 var controlQuote = 0 ;
+
 // declaration of my arrays of objects
 var myquotes = [
 
@@ -54,20 +56,23 @@ function getRandomQuote(){
 	console.log(lastQuote);
 	return myquotes[NewPositionQuote];
 }
-// creation and definition of my  "printQuote " function 
+
+// creation and definition of "random_BG " function 
 // will generate the random color to background
 function random_BG(){
-	
-	document.body.style.backgroundColor = 'rgb(' +Math.random() *255 + ',' +  Math.random() *255+ ',' + Math.random()* ')';
+	document.body.style.backgroundColor = 'rgb( ' + Math.floor(Math.random()*255) + ','+ Math.floor(Math.random() *255) +','+ Math.floor(Math.random()*255)+ ')';
 }
+
 // creation and definition of my  "printQuote " function 
 // "printQuote " will print the selected  content of the quote to the page .
 function printQuote(){
 	
-	objecto = getRandomQuote()
+	
+	objecto = getRandomQuote();
 	var message = '<p class="quote"> ' + objecto['quote']  + '</p> '; 
 	message += '<p class="source"> '+ objecto['source'] + '<span class="citation"> ';
     message += objecto['citation'] + ' </span> <span class="year"> '+ objecto['year'] + '</span> </p> ';
+	random_BG();// call of the random_BG for change the Background first
 	var div = document.getElementById('quote-box').innerHTML= message;
 }
 
