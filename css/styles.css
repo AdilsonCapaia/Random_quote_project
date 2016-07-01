@@ -56,7 +56,14 @@ body {
   content: ", ";
   font-style: normal;
 }
-
+.tags{
+	
+	font-style: italic;
+}
+.tags:before {
+	content: ",";
+	font-style:normal;
+}
 #loadQuote {
   position: fixed;
   width: 12em;
