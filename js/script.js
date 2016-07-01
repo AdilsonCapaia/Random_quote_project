@@ -74,6 +74,7 @@ function printQuote(){
     message += objecto['citation'] + ' </span> <span class="year"> '+ objecto['year'] + '</span> </p> ';
 	random_BG();// call of the random_BG for change the Background first
 	var div = document.getElementById('quote-box').innerHTML= message;
+	setTimeout('printQuote()', 30000);
 }
 
-printQuote();
+//printQuote();
