@@ -60,6 +60,7 @@ body {
 	
 	font-style: italic;
 }
+/*  style for the tags quote  By: Adilson Capaia  */
 .tags:before {
 	content: ",";
 	font-style:normal;

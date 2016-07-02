@@ -15,7 +15,9 @@ var myquotes = [
   {quote : "Don't cry because it's over, smile because it happened.", source :" Dr. Seuss ", citation : 'google sites' , year : 1880, tags :" Life"},
   {quote : " You only live once, but if you do it right, once is enough. ", source : "Mae West", citation : " google's site " , year : 1980, tags :"Humor"},
   {quote : " If you have no critics, you'll likely have no success. ", source : "Malcom X", citation : " Brain Quote " , year : 1967, tags :" Success-Life"},
-  {quote : " All that I am, or I hope to be. I owe to my angel mother. ", source : "Abraham Lincoln", citation : " Brain Quote " , year : 1880, tags :" Mother's days"}
+  {quote : " All that I am, or I hope to be. I owe to my angel mother. ", source : "Abraham Lincoln", citation : " Brain Quote " , year : 1880, tags :" Mother's days"},
+  {quote : " Education is not preparation for life; education is life itself.", source : "John Dewey", citation : " Brain Quote " , year : 1990, tags :" Education"},
+  {quote : " Education is the most powerful weapon which you can use to change the world.", source : "Nelson Mandela", citation : " Brain Quote " , year : 1920, tags :" Education"}
 ]
 
 // creation and definition of my  "getRandomQuote " function 
@@ -27,34 +29,35 @@ function getRandomQuote(){
 	
    // if controlQuote variable is greater than the length of  array of objects "myquotes" then 
    // "controlQuote" and "lastQuote" array, both are set to zero, this mean that de quotes 
-   //can be regenerated again. all quotes have been already shown.
+   //can be regenerated again. all quotes have been already displayed.
 	
    if( controlQuote >= myquotes.length ) { 
-	  controlQuote = 0; 
+	  controlQuote = 0;  
 	  for( var i=0 ; i<= myquotes.length; i +=1){
-		lastQuote.pop();
+		lastQuote.pop();  // erase all number of quotes displayed
 	  }
-	  console.log(lastQuote);
    }
 	
    // loop that control the quotes that have not  been displayed yet. 
-   //but , just if  "controlQuote" is greater than 0.
+   //but , just if  "controlQuote" is greater than 0. mean that at this moment
+   // we can check if the quote has already been displayed
    if(controlQuote > 0){
 		
-	  while(lastQuote.indexOf(NewPositionQuote) !== -1){
+	  // Generate a new random quote index position until find the quote that have not been displayed yet
+	  while(lastQuote.indexOf(NewPositionQuote) !== -1){ 
 		NewPositionQuote = Math.floor(Math.random() *myquotes.length);
 	  }
+	  // push the last displayed quote to the array lastQuote
 	  lastQuote.push(NewPositionQuote);
 	  controlQuote +=1;
-	  console.log('quote number '+ NewPositionQuote);
-	  return myquotes[NewPositionQuote];
+	  return myquotes[NewPositionQuote]; // return the quote object to be displayed
    } 
-	
-   controlQuote +=1;
+   // the first time and increment, and after we pass to the if statement (controlQuote > 0) for control if the quote has been displayed
+   controlQuote +=1; 
+   // push the last displayed quote to the array lastQuote
    lastQuote.push(NewPositionQuote);
-   console.log('first time '+ NewPositionQuote);
-   console.log(lastQuote);
-   return myquotes[NewPositionQuote];
+   // return the quote object to be displayed, the first time and each time that all quote have been displayed
+   return myquotes[NewPositionQuote]; 
 }
 
 // creation and definition of "random_BG " function 
@@ -77,3 +80,4 @@ function printQuote(){
    setTimeout('printQuote()', 30000);
 }
 
+printQuote();
